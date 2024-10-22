@@ -1,0 +1,49 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.example.app_movil" // Define el namespace correctamente
+    compileSdkVersion 34 // Cambiado a la versión requerida por geolocator_android
+
+    ndkVersion "23.1.7779620" // O la versión que estés usando. Ajusta si es necesario.
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    defaultConfig {
+        // Define un ID único para tu aplicación.
+        applicationId "com.example.app_movil"
+        // Valores explícitos para minSdkVersion y targetSdkVersion.
+        minSdkVersion 21 // Ajusta a la versión mínima que soporta tu aplicación
+        targetSdkVersion 34
+        versionCode 1 // Cambia el código de versión según sea necesario
+        versionName "1.0" // Cambia el nombre de la versión según sea necesario
+    }
+
+    buildTypes {
+        release {
+            // Puedes agregar tu propia configuración de signing para el release
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0" // Se agregó la versión explícita de Kotlin
+    // Otras dependencias si es necesario
+}
+
